@@ -1,5 +1,5 @@
-package com.revature.hydra;
-import org.springframework.boot.SpringApplication;
+package com.revature.hydra.client.controller;
+
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -7,15 +7,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @EnableAutoConfiguration
-public class SampleController {
+public class ClientController {
 
-/*    @RequestMapping("/")
+    @RequestMapping("/")
     @ResponseBody
     String home() {
         return "Hello World!";
-    }*/
-
-    public static void main(String[] args) throws Exception {
-        SpringApplication.run(SampleController.class, args);
     }
+
 }
