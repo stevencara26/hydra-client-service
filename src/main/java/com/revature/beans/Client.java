@@ -17,10 +17,6 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Table(name = "CALIBER_CLIENT")
 @Cacheable
 public class Client implements Serializable {
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1671197112642064698L;
 
 	@Id
