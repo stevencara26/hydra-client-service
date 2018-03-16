@@ -19,7 +19,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class Client implements Serializable {
 
 	/**
-	 * 
+	 * Beans for Client table
 	 */
 	private static final long serialVersionUID = 1671197112642064698L;
 
