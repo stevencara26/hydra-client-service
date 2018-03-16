@@ -23,14 +23,6 @@ public interface ClientRepository extends JpaRepository<Client, Integer> {
 	Client findOneById(Integer clientId);
 
 	/**
-	 * Find a client by clientName.
-	 * 
-	 * @param clientName
-	 * @return Client
-	 */
-	Client findOneByName(String clientName);
-
-	/**
 	 * Find all Clients.
 	 * 
 	 * @return List of Clients
