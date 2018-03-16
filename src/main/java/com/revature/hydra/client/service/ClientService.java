@@ -1,6 +1,5 @@
 package com.revature.hydra.client.service;
 
-<<<<<<< HEAD
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,19 +67,8 @@ public class ClientService {
 		//return clientRepository.findOne(clientId);
 		return clientRepository.findOneById(clientId);
 	}
-	
-	
-	
-
-=======
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import com.revature.hydra.client.data.ClientRepository;
-
-@Service
-public class ClientService {
-	@Autowired
-	private ClientRepository clientRepository;
->>>>>>> d32bc5d04d75d1c66762ebbe26e1757c52291c0c
 }
+	
+	
+	
+
