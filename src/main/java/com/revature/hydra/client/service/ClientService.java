@@ -58,14 +58,14 @@ public class ClientService {
 	/**
 	 * Obtain a client from clientRepository with given clientId.
 	 * 
-	 * @param clientId
-	 * @return client - The client object with given clientId
+	 * @param ClientId
+	 * @return Client - The client object with given clientId
 	 */
 	public Client findOneById(Integer clientId) {
 		//These two methods exist by default in the repository, should have the same function.
 		//return clientRepository.getOne(clientId);
 		//return clientRepository.findOne(clientId);
-		return clientRepository.findOneById(clientId);
+		return clientRepository.findOneByClientId(clientId);
 	}
 }
 	
