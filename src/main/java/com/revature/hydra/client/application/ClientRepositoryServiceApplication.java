@@ -28,11 +28,6 @@ public class ClientRepositoryServiceApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ClientRepositoryServiceApplication.class, args);
 	}
-/*	@Bean
-	public ClientController clientController() {
-		return new ClientController();
-	}*/
-	
 	
 	/*
 	 * We believe that this is called by the gateway microservice.  And because this is currently working
