@@ -12,6 +12,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.stereotype.Component;
 
 @Entity
 @Table(name = "CALIBER_CLIENT")
@@ -27,11 +28,11 @@ public class Client implements Serializable {
 	@Column(name = "CLIENT_ID")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CLIENT_ID_SEQUENCE")
 	@SequenceGenerator(name = "CLIENT_ID_SEQUENCE", sequenceName = "CLIENT_ID_SEQUENCE")
-	private Integer ClientId;
+	private Integer clientId;
 	
 	@NotEmpty
 	@Column(name = "CLIENT_NAME")
-	private String ClientName;
+	private String clientName;
 	
 	
 	
@@ -41,29 +42,29 @@ public class Client implements Serializable {
 	
 	public Client(Integer clientId, String clientName) {
 		super();
-		ClientId = clientId;
-		ClientName = clientName;
+		this.clientId = clientId;
+		this.clientName = clientName;
 	}
 	
 	public Integer getClientId() {
-		return ClientId;
+		return clientId;
 	}
 	public void setClientId(Integer clientId) {
-		ClientId = clientId;
+		this.clientId = clientId;
 	}
 	public String getClientName() {
-		return ClientName;
+		return clientName;
 	}
 	public void setClientName(String clientName) {
-		ClientName = clientName;
+		this.clientName = clientName;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((ClientId == null) ? 0 : ClientId.hashCode());
-		result = prime * result + ((ClientName == null) ? 0 : ClientName.hashCode());
+		result = prime * result + ((clientId == null) ? 0 : clientId.hashCode());
+		result = prime * result + ((clientName == null) ? 0 : clientName.hashCode());
 		return result;
 	}
 
@@ -76,22 +77,22 @@ public class Client implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Client other = (Client) obj;
-		if (ClientId == null) {
-			if (other.ClientId != null)
+		if (clientId == null) {
+			if (other.clientId != null)
 				return false;
-		} else if (!ClientId.equals(other.ClientId))
+		} else if (!clientId.equals(other.clientId))
 			return false;
-		if (ClientName == null) {
-			if (other.ClientName != null)
+		if (clientName == null) {
+			if (other.clientName != null)
 				return false;
-		} else if (!ClientName.equals(other.ClientName))
+		} else if (!clientName.equals(other.clientName))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Client [ClientId=" + ClientId + ", ClientName=" + ClientName + "]";
+		return "Client [clientId=" + clientId + ", clientName=" + clientName + "]";
 	}
 	
 	

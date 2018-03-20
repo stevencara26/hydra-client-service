@@ -20,7 +20,7 @@ public interface ClientRepository extends JpaRepository<Client, Integer> {
 	 * @param clientId
 	 * @return Client
 	 */
-	Client findOneById(Integer clientId);
+	Client findOneByClientId(Integer clientId);
 
 	/**
 	 * Find all Clients.
