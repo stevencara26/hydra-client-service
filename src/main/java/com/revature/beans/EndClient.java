@@ -23,57 +23,52 @@ public class EndClient implements Serializable{
 	 */
 	private static final long serialVersionUID = -1686377310978306024L;
 	
+	//id of end client
 	@Id
 	@Column
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "End_Client_ID_Sequence")
 	@SequenceGenerator(name= "End_Client_ID_Sequence", sequenceName = "End_Client_ID_Sequence")
-	private Integer EndClientId;
+	private Integer endClientId;
 	
+	//name of end client
 	@NotEmpty
 	@Column
-	private String EndClientName;
+	private String endClientName;
 
 	public EndClient() {
 		super();
 	}
-
 	
 	public EndClient(Integer endClientId, String endClientName) {
 		super();
-		EndClientId = endClientId;
-		EndClientName = endClientName;
+		this.endClientId = endClientId;
+		this.endClientName = endClientName;
 	}
-
 
 	public Integer getEndClientId() {
-		return EndClientId;
+		return endClientId;
 	}
-
 
 	public void setEndClientId(Integer endClientId) {
-		EndClientId = endClientId;
+		this.endClientId = endClientId;
 	}
-
 
 	public String getEndClientName() {
-		return EndClientName;
+		return endClientName;
 	}
-
 
 	public void setEndClientName(String endClientName) {
-		EndClientName = endClientName;
+		this.endClientName = endClientName;
 	}
-
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((EndClientId == null) ? 0 : EndClientId.hashCode());
-		result = prime * result + ((EndClientName == null) ? 0 : EndClientName.hashCode());
+		result = prime * result + ((endClientId == null) ? 0 : endClientId.hashCode());
+		result = prime * result + ((endClientName == null) ? 0 : endClientName.hashCode());
 		return result;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -84,24 +79,23 @@ public class EndClient implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		EndClient other = (EndClient) obj;
-		if (EndClientId == null) {
-			if (other.EndClientId != null)
+		if (endClientId == null) {
+			if (other.endClientId != null)
 				return false;
-		} else if (!EndClientId.equals(other.EndClientId))
+		} else if (!endClientId.equals(other.endClientId))
 			return false;
-		if (EndClientName == null) {
-			if (other.EndClientName != null)
+		if (endClientName == null) {
+			if (other.endClientName != null)
 				return false;
-		} else if (!EndClientName.equals(other.EndClientName))
+		} else if (!endClientName.equals(other.endClientName))
 			return false;
 		return true;
 	}
 
-
 	@Override
 	public String toString() {
-		return "EndClient [EndClientId=" + EndClientId + ", EndClientName=" + EndClientName + "]";
+		return "EndClient [endClientId=" + endClientId + ", endClientName=" + endClientName + "]";
 	}
 	
 	
-}
+}	

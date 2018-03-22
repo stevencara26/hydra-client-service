@@ -27,14 +27,23 @@ public class ClientController {
 		this.clientService = clientService;
 	}
 	
-
-    @RequestMapping(value = "/one/client/{id}", method = RequestMethod.GET)
+	/**
+	 * Retrieves a client by id
+	 * @param id
+	 * @return ResponseEntity<Client>
+	 */
+    
+	@RequestMapping(value = "/one/client/{id}", method = RequestMethod.GET)
     //@ResponseBody
     public ResponseEntity<Client> findOneClient(@PathVariable Integer id) {
     	Client c = clientService.findOneById(id);
         return new ResponseEntity<>(c, HttpStatus.OK);
     }
     
+    /**
+     * Retrieves all clients
+     * @return ResponseEntity <List<Client>>
+     */
     @RequestMapping(value = "/all/client", method = RequestMethod.GET)
     //@ResponseBody
     public ResponseEntity<List<Client>> findAllClient() {

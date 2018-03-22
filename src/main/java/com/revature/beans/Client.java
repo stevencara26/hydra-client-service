@@ -24,12 +24,14 @@ public class Client implements Serializable {
 	 */
 	private static final long serialVersionUID = 1671197112642064698L;
 
+	//id of client
 	@Id
 	@Column(name = "CLIENT_ID")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CLIENT_ID_SEQUENCE")
 	@SequenceGenerator(name = "CLIENT_ID_SEQUENCE", sequenceName = "CLIENT_ID_SEQUENCE")
-	private Integer clientId;
+	private Integer clientId; 
 	
+	//name of client
 	@NotEmpty
 	@Column(name = "CLIENT_NAME")
 	private String clientName;

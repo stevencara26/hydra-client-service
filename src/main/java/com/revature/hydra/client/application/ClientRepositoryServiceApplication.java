@@ -1,14 +1,15 @@
 package com.revature.hydra.client.application;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-import com.revature.hydra.client.controller.ClientController;
+import com.revature.hydra.client.data.ClientRepository;
+import com.revature.hydra.client.service.ClientService;
 
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
@@ -19,11 +20,11 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @ComponentScan(basePackages = {"com.revature.hydra.client.controller", "com.revature.hydra.client.service"})
 @EntityScan("com.revature.beans")
 public class ClientRepositoryServiceApplication {
-	/*@Autowired
+	@Autowired
 	ClientService cs;
 	
 	@Autowired
-	ClientRepository cr;*/
+	ClientRepository cr;
 
 	public static void main(String[] args) {
 		SpringApplication.run(ClientRepositoryServiceApplication.class, args);
