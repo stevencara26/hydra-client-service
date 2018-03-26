@@ -14,7 +14,7 @@ import javax.persistence.Table;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-@Table(name= "Caliber_EndClient")
+@Table(name= "CALIBER_END_CLIENT")
 @Cacheable
 public class EndClient implements Serializable{
 
@@ -25,14 +25,14 @@ public class EndClient implements Serializable{
 	
 	//id of end client
 	@Id
-	@Column
+	@Column(name = "END_CLIENT_ID")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "End_Client_ID_Sequence")
 	@SequenceGenerator(name= "End_Client_ID_Sequence", sequenceName = "End_Client_ID_Sequence")
 	private Integer endClientId;
 	
 	//name of end client
 	@NotEmpty
-	@Column
+	@Column(name = "END_CLIENT_NAME")
 	private String endClientName;
 
 	public EndClient() {
