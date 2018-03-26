@@ -27,7 +27,7 @@ public class EndClient implements Serializable{
 	@Id
 	@Column(name = "END_CLIENT_ID")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "End_Client_ID_Sequence")
-	@SequenceGenerator(name= "End_Client_ID_Sequence", sequenceName = "End_Client_ID_Sequence")
+	@SequenceGenerator(name= "End_Client_ID_Sequence", sequenceName = "End_Client_ID_Sequence", initialValue = 2000)
 	private Integer endClientId;
 	
 	//name of end client
