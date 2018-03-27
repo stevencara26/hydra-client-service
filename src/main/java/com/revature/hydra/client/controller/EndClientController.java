@@ -63,7 +63,7 @@ public class EndClientController {
 	 * Create end client
 	 *
 	 * @param endclient to save
-	 * @return the response entity with saved endclient
+	 * @return the response entity with saved end client
 	 */
 	@RequestMapping(value = "/endclient/create", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<EndClient> createEndClient(@Valid @RequestBody EndClient endclient) {
