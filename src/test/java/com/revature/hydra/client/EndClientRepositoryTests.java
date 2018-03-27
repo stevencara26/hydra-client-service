@@ -2,7 +2,6 @@ package com.revature.hydra.client;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
@@ -11,20 +10,21 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.revature.beans.Client;
 import com.revature.beans.EndClient;
 import com.revature.hydra.client.application.ClientRepositoryServiceApplication;
-import com.revature.hydra.client.data.ClientRepository;
 import com.revature.hydra.client.data.EndClientRepository;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes= ClientRepositoryServiceApplication.class)
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class EndClientRepositoryTests {
 	private static final Logger Log = Logger.getLogger(EndClientRepositoryTests.class);
 
@@ -41,6 +41,7 @@ public class EndClientRepositoryTests {
 		testEndClient = new EndClient();
 		testEndClient.setEndClientName("Test_Name");
 		testEndClient = endClientRepository.save(testEndClient);
+		Testid = testEndClient.getEndClientId();
 
 	}
 
@@ -53,7 +54,7 @@ public class EndClientRepositoryTests {
 	}
 
 	@Test
-	public void addEndClient() {
+	public void test1addEndClient() {
 		Log.info("Test adding a client.");
 		testEndClient = new EndClient(5, "Test_Name2");
 		EndClient savedEndClient = endClientRepository.save(testEndClient);
@@ -62,7 +63,7 @@ public class EndClientRepositoryTests {
 	}
 
 	@Test
-	public void findOneByClientId() {
+	public void test2findOneByClientId() {
 		Log.info("Test getting a endclient by endclienttId.");
 		EndClient endclient = endClientRepository.findOneByEndClientId(testEndClient.getEndClientId());
 
@@ -70,7 +71,7 @@ public class EndClientRepositoryTests {
 	}
 
 	@Test
-	public void findAll() {
+	public void test3findAll() {
 		Log.info("Test getting all endclients.");
 		List<EndClient> endclients = endClientRepository.findAll();
 
@@ -80,7 +81,7 @@ public class EndClientRepositoryTests {
 	
 
 	@Test
-	public void updateEndClient() {
+	public void test4updateEndClient() {
 		Log.info("Test updating a endclient.");
 		testEndClient.setEndClientId(Testid);
 		EndClient updatedEndClient = endClientRepository.save(testEndClient);
@@ -89,11 +90,11 @@ public class EndClientRepositoryTests {
 	}
 
 	@Test
-	public void deleteEndClient() {
+	public void test5deleteEndClient() {
 		Log.info("Test deleting a endclient.");
 		endClientRepository.delete(testEndClient);
 
-		assertNull(endClientRepository.findOneByEndClientId(testEndClient.getEndClientId()));
+		assertNull(endClientRepository.findOne(Testid));
 	}
 
 
