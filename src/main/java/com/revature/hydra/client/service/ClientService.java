@@ -29,12 +29,22 @@ public class ClientService {
 	}
 
 	/**
+	 * Add a new marketing status
+	 * @param marketingStatusName
+	 */
+	public void createClient(String clientName) {
+		Client client = new Client();
+		client.setClientName(clientName);
+		clientRepository.save(client);
+	}
+	
+	/**
 	 * Update a client
 	 * 
 	 * @param client - client to update
 	 */
 	public void update(Client client) {
-		save(client);
+		clientRepository.save(client);
 	}
 
 	/**
