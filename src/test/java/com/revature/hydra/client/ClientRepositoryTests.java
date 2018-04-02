@@ -35,6 +35,9 @@ public class ClientRepositoryTests {
 
 	Integer Testid;
 	
+	/**
+	 * Setup test environment for each test case.
+	 */
 	@Before
 	public void init() {
 		Log.info("Initalizing a Test Client for use in Tests");
@@ -44,6 +47,9 @@ public class ClientRepositoryTests {
 
 	}
 
+	/**
+	 * Clean up the changes made by every test.
+	 */
 	@After
 	public void teardown() {
 		Log.info("Tear down");
@@ -52,6 +58,9 @@ public class ClientRepositoryTests {
 		}
 	}
 
+	/**
+	 * Test adding a client to database by clientRepository.save(client)
+	 */
 	@Test
 	public void addClient() {
 		Log.info("Test adding a client.");
@@ -62,6 +71,9 @@ public class ClientRepositoryTests {
 		assertTrue(clientRepository.findAll().contains(savedClient));
 	}
 
+	/**
+	 * Test getting a client by clientId through clientRepository.findOneByClientId(clientId)
+	 */
 	@Test
 	public void findOneByClientId() {
 		Log.info("Test getting a client by clientId.");
@@ -70,6 +82,9 @@ public class ClientRepositoryTests {
 		assertEquals(testClient, client);
 	}
 
+	/**
+	 * Test getting all clients by clientRepository.findAll()
+	 */
 	@Test
 	public void findAll() {
 		Log.info("Test getting all clients.");
@@ -79,7 +94,9 @@ public class ClientRepositoryTests {
 	}
 
 	
-
+	/**
+	 * Test updating an existing client by clientRepository.save(client)
+	 */
 	@Test
 	public void updateClient() {
 		Log.info("Test updating a client.");
@@ -89,6 +106,9 @@ public class ClientRepositoryTests {
 		assertEquals(updatedClient.getClientId(), testClient.getClientId());
 	}
 
+	/**
+	 * Test deleting a client by clientRepository.delete(client)
+	 */
 	@Test
 	public void deleteClient() {
 		Log.info("Test deleting a client.");

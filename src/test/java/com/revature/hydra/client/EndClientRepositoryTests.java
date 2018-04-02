@@ -35,6 +35,9 @@ public class EndClientRepositoryTests {
 	
 	Integer Testid;
 
+	/**
+	 * Setup test environment for each test case.
+	 */
 	@Before
 	public void init() {
 		Log.info("Initalizing a Test EndClient for use in Tests");
@@ -45,6 +48,9 @@ public class EndClientRepositoryTests {
 
 	}
 
+	/**
+	 * Clean up the changes made by every test.
+	 */
 	@After
 	public void teardown() {
 		Log.info("Tear down");
@@ -53,6 +59,9 @@ public class EndClientRepositoryTests {
 		}
 	}
 
+	/**
+	 * Test adding a end client to database by endClientRepository.save(endClient)
+	 */
 	@Test
 	public void test1addEndClient() {
 		Log.info("Test adding a client.");
@@ -62,6 +71,9 @@ public class EndClientRepositoryTests {
 		assertTrue(endClientRepository.findAll().contains(savedEndClient));
 	}
 
+	/**
+	 * Test getting a end client by endClientId through endClientRepository.findOneByClientId(endClientId)
+	 */
 	@Test
 	public void test2findOneByClientId() {
 		Log.info("Test getting a endclient by endclienttId.");
@@ -70,6 +82,9 @@ public class EndClientRepositoryTests {
 		assertEquals(testEndClient, endclient);
 	}
 
+	/**
+	 * Test getting all end clients by endClientRepository.findAll()
+	 */
 	@Test
 	public void test3findAll() {
 		Log.info("Test getting all endclients.");
@@ -79,7 +94,9 @@ public class EndClientRepositoryTests {
 	}
 
 	
-
+	/**
+	 * Test updating an existing end client by endClientRepository.save(endClient)
+	 */
 	@Test
 	public void test4updateEndClient() {
 		Log.info("Test updating a endclient.");
@@ -89,6 +106,9 @@ public class EndClientRepositoryTests {
 		assertEquals(updatedEndClient.getEndClientId(), testEndClient.getEndClientId());
 	}
 
+	/**
+	 * Test deleting a end client by endClientRepository.delete(endClient)
+	 */
 	@Test
 	public void test5deleteEndClient() {
 		Log.info("Test deleting a endclient.");

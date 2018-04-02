@@ -32,7 +32,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-import com.revature.beans.Client;
 import com.revature.beans.EndClient;
 import com.revature.hydra.client.application.ClientRepositoryServiceApplication;
 import com.revature.hydra.client.data.EndClientRepository;
@@ -69,6 +68,9 @@ public class EndClientControllerTest {
 	
 	private final String mediaTypeJson = MediaType.APPLICATION_JSON_UTF8_VALUE;
 	
+	/**
+	 * Setup test environment for each test case.
+	 */
 	@Before
 	public void setUp() throws Exception {
 		this.mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
@@ -76,6 +78,9 @@ public class EndClientControllerTest {
 		this.testEndClient = this.endClientRepository.save(this.testEndClient);
 	}
 
+	/**
+	 * Remove possible changes made by test
+	 */
 	@After
 	public void tearDown() throws Exception {
 		int testId = this.testEndClient.getEndClientId();
@@ -84,6 +89,11 @@ public class EndClientControllerTest {
 		}
 	}
 
+	/**
+	 * Test getting a end client for a specific endClientId by hitting end-point /one/endclient/{id}
+	 * 
+	 * @throws Exception
+	 */
 	@Test
 	public void testOneEndClientById() throws Exception {
 		System.out.println("atest");
@@ -94,6 +104,11 @@ public class EndClientControllerTest {
 					.andExpect(jsonPath("$.endClientName", is(this.testEndClient.getEndClientName())));
 	}
 
+	/**
+	 * Test getting all end clients by hitting end-point /all/endclient
+	 * 
+	 * @throws Exception
+	 */
 	@Test
 	public void testAllEndClient() throws Exception {
 		System.out.println("atest");
@@ -102,6 +117,11 @@ public class EndClientControllerTest {
 					.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE));
 		}
 
+	/**
+	 * Test creating a end client by hitting end-point /endclient/create
+	 * 
+	 * @throws Exception
+	 */
 	@Test
 	public void testCreateEndClient() throws Exception {
 		this.createEndClient = new EndClient();
@@ -112,7 +132,12 @@ public class EndClientControllerTest {
 					.andExpect(status().isCreated());
 	}
 	
-	@Ignore
+	
+	/**
+	 * Test updating an existing end client by hitting end-point /endclient/update
+	 * 
+	 * @throws Exception
+	 */
 	@Test
 	public void testUpdateEndClient() throws Exception {
 		this.testEndClient = this.endClientRepository.findOne(this.testEndClient.getEndClientId());
@@ -123,7 +148,12 @@ public class EndClientControllerTest {
 					.andExpect(status().isOk());
 	}
 	
-	@Ignore
+	
+	/**
+	 * Test deleting an existing end client by hitting end-point /endclient/delete	
+	 *   
+	 * @throws Exception
+	 */
 	@Test
 	public void testDeleteEndClient() throws Exception {
 		this.mockMvc.perform(delete("/endclient/delete/" + this.testEndClient.getEndClientId()))

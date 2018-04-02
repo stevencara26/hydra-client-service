@@ -69,6 +69,9 @@ public class ClientControllerTest {
 	
 	private final String mediaTypeJson = MediaType.APPLICATION_JSON_UTF8_VALUE;
 	
+	/**
+	 * Setup test environment for each test case.
+	 */
 	@Before
 	public void setUp() throws Exception {
 		this.mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
@@ -76,6 +79,9 @@ public class ClientControllerTest {
 		this.testClient = this.clientRepository.save(this.testClient);
 	}
 
+	/**
+	 * Remove possible changes made by test
+	 */
 	@After
 	public void tearDown() throws Exception {
 		int testId = this.testClient.getClientId();
@@ -84,6 +90,11 @@ public class ClientControllerTest {
 		}
 	}
 
+	/**
+	 * Test getting a client for a specific clientId by hitting end-point /one/client/{id}
+	 * 
+	 * @throws Exception
+	 */
 	@Test
 	public void testOneClientById() throws Exception {
 		System.out.println("atest");
@@ -94,6 +105,11 @@ public class ClientControllerTest {
 					.andExpect(jsonPath("$.clientName", is(this.testClient.getClientName())));
 	}
 
+	/**
+	 * Test getting all clients by hitting end-point /all/client
+	 * 
+	 * @throws Exception
+	 */
 	@Test
 	public void testAllClient() throws Exception {
 		System.out.println("atest");
@@ -102,6 +118,11 @@ public class ClientControllerTest {
 					.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE));
 		}
 
+	/**
+	 * Test creating a client by hitting end-point /client/create
+	 * 
+	 * @throws Exception
+	 */
 	@Test
 	public void testCreateClient() throws Exception {
 		this.createClient = new Client();
@@ -112,7 +133,12 @@ public class ClientControllerTest {
 					.andExpect(status().isCreated());
 	}
 	
-	@Ignore
+	
+	/**
+	 * Test updating an existing client by hitting end-point /client/update
+	 * 
+	 * @throws Exception
+	 */
 	@Test
 	public void testUpdateClient() throws Exception {
 		this.testClient = this.clientRepository.findOne(this.testClient.getClientId());
@@ -123,7 +149,11 @@ public class ClientControllerTest {
 					.andExpect(status().isOk());
 	}
 	
-	@Ignore
+	/**
+	 * Test deleting an existing client by hitting end-point /client/delete
+	 * 
+	 * @throws Exception
+	 */
 	@Test
 	public void testDeleteClient() throws Exception {
 		this.mockMvc.perform(delete("/client/delete/" + this.testClient.getClientId()))

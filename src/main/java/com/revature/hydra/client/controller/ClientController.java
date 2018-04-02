@@ -83,7 +83,7 @@ public class ClientController {
 	public ResponseEntity<Void> updateClient(@Valid @RequestBody Client client) {
 		log.info("Updating client: " + client);
 		clientService.update(client);
-		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
 	/**
@@ -98,7 +98,7 @@ public class ClientController {
 		client.setClientId(id);
 		log.info("Deleting client: " + id);
 		clientService.delete(client);
-		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
 }
