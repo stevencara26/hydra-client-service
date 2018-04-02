@@ -14,7 +14,7 @@ import javax.persistence.Table;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-@Table(name= "CALIBER_END_CLIENT")
+@Table(name= "TF_END_CLIENT")
 @Cacheable
 public class EndClient implements Serializable{
 

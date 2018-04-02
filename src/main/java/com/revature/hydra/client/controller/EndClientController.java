@@ -82,7 +82,7 @@ public class EndClientController {
 	public ResponseEntity<Void> updateEndClient(@Valid @RequestBody EndClient endclient) {
 		log.info("Updating endclient: " + endclient);
 		endClientService.update(endclient);
-		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
 	/**
@@ -97,7 +97,7 @@ public class EndClientController {
 		endclient.setEndClientId(id);
 		log.info("Deleting endclient: " + id);
 		endClientService.delete(endclient);
-		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
 

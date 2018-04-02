@@ -15,7 +15,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.stereotype.Component;
 
 @Entity
-@Table(name = "CALIBER_CLIENT")
+@Table(name = "TF_CLIENT")
 @Cacheable
 public class Client implements Serializable {
 
